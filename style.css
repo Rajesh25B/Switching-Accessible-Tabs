@@ -1,0 +1,13 @@
+[role='tablist'] {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 1rem;
+}
+
+[aria-selected='true'] {
+    text-decoration-thickness: 0.15em;
+    text-underline-offset: 0.45em;
+    color: blueviolet;
+}
