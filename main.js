@@ -12,6 +12,7 @@ tabsList.querySelectorAll('li').forEach((listitem) => {
 });
 
 tabButtons.forEach((tab, idx) => {
+    tab.setAttribute("role", "tab");
     if (idx === 0) {
         // do something
     }
@@ -23,6 +24,7 @@ tabButtons.forEach((tab, idx) => {
 
 // highlight the tabpanel upon tab selection
 tabPanels.forEach((panel) => {
+    panel.setAttribute("role", "tabpanel");
     panel.setAttribute("tabindex", "0");
 })
 
