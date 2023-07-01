@@ -3,14 +3,28 @@ const tabsList = tabsContainer.querySelector('ul');
 const tabButtons = tabsList.querySelectorAll('a');
 const tabPanels = tabsContainer.querySelectorAll('.tabs__panels > div');
 
+// for assistive technology setup
+tabsList.setAttribute("role", "tablist"); // assistive tech can spot this as a tablist.
+// make the links (<a>'s) as tabs for tab buttons on keyboard
+// two things to achieve that
+tabsList.querySelectorAll('li').forEach((listitem) => {
+    listitem.setAttribute("role", 'presentation');
+});
+
 tabButtons.forEach((tab, idx) => {
     if (idx === 0) {
         // do something
     }
     else {
+        tab.setAttribute("tabindex", "-1");
         tabPanels[idx].setAttribute("hidden", "");
     }
 });
+
+// highlight the tabpanel upon tab selection
+tabPanels.forEach((panel) => {
+    panel.setAttribute("tabindex", "0");
+})
 
 tabsContainer.addEventListener("click", (event) => {
     event.preventDefault();
