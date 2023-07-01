@@ -51,4 +51,14 @@ function switchTab(newTab) {
     });
     // upon selection of a single panel, remove href attribute of hidden on that panel
     activePanel.removeAttribute("hidden")
+
+    // update the active panel when we select a new tab
+
+    tabButtons.forEach((btn) => {
+        btn.setAttribute("aria-selected", false);
+        btn.setAttribute("tabindex", "-1");
+    })
+
+    newTab.setAttribute("aria-selected", true);
+    newTab.setAttribute("tabindex", "0");
 }
