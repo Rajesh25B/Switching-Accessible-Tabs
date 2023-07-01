@@ -14,7 +14,8 @@ tabsList.querySelectorAll('li').forEach((listitem) => {
 tabButtons.forEach((tab, idx) => {
     tab.setAttribute("role", "tab");
     if (idx === 0) {
-        // do something
+        // idx = 0 is the default panel that we show up on page load.
+        tab.setAttribute("aria-selected", "true");
     }
     else {
         tab.setAttribute("tabindex", "-1");
