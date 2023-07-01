@@ -42,46 +42,46 @@ tabsContainer.addEventListener("click", (event) => {
 
 tabsContainer.addEventListener("keydown", (e) => {
     // keyboard events
-  switch (e.key) {
-    case "ArrowLeft":
-      moveLeft();
-      break;
-    case "ArrowRight":
-      moveRight();
-      break;
-    case "Home":
-      e.preventDefault();
-      switchTab(tabButtons[0]);
-      break;
-    case "End":
-      e.preventDefault();
-      switchTab(tabButtons[tabButtons.length - 1]);
-      break;
-  }
+    switch (e.key) {
+        case "ArrowLeft":
+            moveLeft();
+            break;
+        case "ArrowRight":
+            moveRight();
+            break;
+        case "Home":
+            e.preventDefault();
+            switchTab(tabButtons[0]);
+            break;
+        case "End":
+            e.preventDefault();
+            switchTab(tabButtons[tabButtons.length - 1]);
+            break;
+    }
 });
 
 function moveLeft() {
     // this func looks for currently active tab and moves left
     const currentTab = document.activeElement;
     if (!currentTab.parentElement.previousElementSibling) {
-    switchTab(tabButtons[tabButtons.length - 1]);
-  } else {
-    switchTab(
-      currentTab.parentElement.previousElementSibling.querySelector("a")
-    );
-}       
- 
+        switchTab(tabButtons[tabButtons.length - 1]);
+    } else {
+        switchTab(
+            currentTab.parentElement.previousElementSibling.querySelector("a")
+        );
+    }
+}
 function moveRight() {
     // this func looks for currently active tab and moves right
     const currentTab = document.activeElement;
     if (!currentTab.parentElement.nextElementSibling) {
-    switchTab(tabButtons[0]);
-  } else {
-    switchTab(
-      currentTab.parentElement.nextElementSibling.querySelector("a")
-    );
-}  
-    
+        switchTab(tabButtons[0]);
+    } else {
+        switchTab(
+            currentTab.parentElement.nextElementSibling.querySelector("a")
+        );
+    }
+}
 function switchTab(newTab) {
     // get active panel upon tab selection
     const activePanelId = newTab.getAttribute('href'); // returns href of each tab
@@ -103,4 +103,5 @@ function switchTab(newTab) {
 
     newTab.setAttribute("aria-selected", true);
     newTab.setAttribute("tabindex", "0");
+    newTab.focus();
 }
